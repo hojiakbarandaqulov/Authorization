@@ -1,7 +1,7 @@
 package org.example.utils;
 
 import io.jsonwebtoken.*;
-import org.example.dto.JwtDTO;
+import org.example.dto.jwt.JwtDTO;
 import org.example.enums.ProfileRole;
 
 import javax.crypto.spec.SecretKeySpec;

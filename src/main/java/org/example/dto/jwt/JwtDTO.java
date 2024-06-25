@@ -1,4 +1,4 @@
-package org.example.dto;
+package org.example.dto.jwt;
 
 import lombok.Data;
 import org.example.enums.ProfileRole;

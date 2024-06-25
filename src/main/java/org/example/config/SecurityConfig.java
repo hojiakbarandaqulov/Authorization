@@ -19,9 +19,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SecurityConfig {
 
-    private CustomUserDetailService customUserDetailService;
+    private final CustomUserDetailService customUserDetailService;
 
-    private JwtTokenFilter jwtTokenFilter;
+    private final JwtTokenFilter jwtTokenFilter;
 
     public SecurityConfig(CustomUserDetailService customUserDetailService, JwtTokenFilter jwtTokenFilter) {
         this.customUserDetailService = customUserDetailService;
