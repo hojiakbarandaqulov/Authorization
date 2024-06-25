@@ -12,6 +12,7 @@ import java.util.Optional;
 public class AuthorizationService {
     private final ProfileRepository profileRepository;
     private final MailSenderService mailSenderService;
+
     public AuthorizationService(ProfileRepository profileRepository, MailSenderService mailSenderService) {
         this.profileRepository = profileRepository;
         this.mailSenderService = mailSenderService;
@@ -20,7 +21,7 @@ public class AuthorizationService {
     public String registration(RegistrationDTO dto) {
         Optional<ProfileEntity> byEmailAndVisibleTrue = profileRepository.findByEmailAndVisibleTrue(dto.getEmail());
         if (byEmailAndVisibleTrue.isPresent()) {
-            throw  new AppBadException("Email already exists");
+            throw new AppBadException("Email already exists");
         }
         ProfileEntity profileEntity = new ProfileEntity();
         profileEntity.setName(dto.getName());
@@ -29,7 +30,7 @@ public class AuthorizationService {
         profileEntity.setPassword(dto.getPassword());
         profileEntity.setRole(dto.getRole());
 
-
+        return null;
     }
 
 
@@ -59,5 +60,7 @@ public class AuthorizationService {
                 "    </div>";
         String text = String.format(formatText, url);
         mailSenderService.send(email, "Complete registration", text);
-        emailHistoryService.crete(email, text); // create history
+//        emailHistoryService.crete(email, text); // create history
+
+    }
 }
